@@ -2,83 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CSS Grid Alignment Demo</title>
-    <style>
-        body {
-            background-color: #00ff00; /* Bright green background from image */
-            font-family: sans-serif;
-            padding: 20px;
-        }
-
-        /* Container using CSS Grid */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(4, 100px);
-            grid-gap: 10px;
-            height: 150px;
-            border: 2px dashed #333;
-            margin-bottom: 30px;
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Individual cyan boxes */
-        .item {
-            background-color: #00ffff; 
-            border: 1px solid #000;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        /* Alignment classes based on the presentation */
-        .center {
-            justify-items: center;
-            align-items: center;
-        }
-
-        .end {
-            justify-items: end;
-            align-items: end;
-        }
-
-        .stretch .item {
-            width: auto;
-            height: auto;
-        }
-        .stretch {
-            justify-items: stretch;
-            align-items: stretch;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+<style>
+    .box{
+        background-color: bisque;
+        width: 100px;
+        height: 100px;
+        transform: all 0.5s ease;
+        padding: 10px;
+        margin: 10px;
+        gap: 20px;
+        cursor: pointer;
+        animation: rotateBox 5s linear infinite;
+    }
+    .box:hover{
+        background-color: aquamarine;
+        transform: scale(1.2) ;
+    }
+    .ani{
+        background-color: aqua;
+        padding: 30px;
+        width: 200px;
+        height: 200px;
+    }
+    .circle{
+        width: 100px;
+        height: 100px;
+        background-color: aliceblue;
+        border-radius: 50%;
+        animation: colorChange 4s infinite;
+    }
+    @keyframes colorChange{
+        0%{
+            background: red;
+        }
+        50%{
+            background: green;
+        }
+        100%{
+            background: brown;
+        }
+    }
+    @keyframes rotateBox{
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+    .text{
+        font-size: 30px;
+        animation: fade 4s infinite alternate;
+    }
+    @keyframes fade{
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+</style>
 <body>
-
-    <h2>Centered Alignment</h2>
-    <div class="grid-container center">
-        <div class="item">A</div>
-        <div class="item">B</div>
-        <div class="item">C</div>
-        <div class="item">D</div>
+    <div class="box">Tran1</div>
+    <div class="box">Tran2</div>
+    <div class="box">Tran3</div>
+    <div class="box">Tran4</div>
+    <div class="ani">
+        <div class="circle">circle</div>
     </div>
-
-    <h2>End Alignment</h2>
-    <div class="grid-container end">
-        <div class="item">A</div>
-        <div class="item">B</div>
-        <div class="item">C</div>
-        <div class="item">D</div>
-    </div>
-
-    <h2>Stretch Alignment</h2>
-    <div class="grid-container stretch">
-        <div class="item">A</div>
-        <div class="item">B</div>
-        <div class="item">C</div>
-        <div class="item">D</div>
-    </div>
-
+    <div class="text">text kohiufujl</div>
+    
 </body>
 </html>
