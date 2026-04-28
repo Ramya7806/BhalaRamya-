@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Layout</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #d32f2f; /* Reddish color for headings */
+            margin-top: 0;
+        }
+
+        .blue-title {
+            color: blue;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Section 1: Block Level (Context Box) */
+        .context-box {
+            border: 2px solid #64dd17; /* Green border */
+            width: 250px;
+            padding: 15px;
+            margin-bottom: 40px;
+            border-left: 4px dashed #333; /* Dashed line on left */
+            background-color: white;
+        }
+
+        .context-label {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .block-item {
+            border: 1.5px solid #2979ff; /* Blue border */
+            height: 35px;
+            width: 80px;
+            margin: 10px auto; /* Centers the inner boxes */
+        }
+
+        /* Section 2: Container for Inline and Inline-Block */
+        .main-container {
+            border: 2px solid #ff5252; /* Red border */
+            padding: 25px;
+            width: 600px;
+            background-color: white;
+        }
+
+        /* Inline Box Styling */
+        .inline-area {
+            margin-bottom: 40px;
+        }
+
+        .inline-box {
+            display: inline;
+            background-color: #00e5ff; /* Cyan background */
+            color: #0d47a1; /* Dark blue text */
+            padding: 2px 4px;
+            margin: 2px;
+            border: 1px solid #00bcd4;
+            font-size: 13px;
+            text-decoration: underline;
+        }
+
+        /* Inline-Block Box Styling */
+        .inline-block-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .ib-box {
+            display: inline-block;
+            background-color: black;
+            color: white;
+            width: 130px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px; /* Vertically centers text */
+            border-radius: 12px; /* Rounded corners */
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welocome to Box Model</h1>
+
+    <!-- Upper Section: Block items in a dashed container -->
+    <div class="context-box">
+        <div class="context-label">contex box</div>
+        <div class="block-item"></div>
+        <div class="block-item"></div>
+        <div class="block-item"></div>
+    </div>
+
+    <!-- Lower Section: Inline and Inline-Block items -->
+    <div class="main-container">
+        
+        <!-- Inline Section -->
+        <div class="inline-area">
+            <div class="blue-title">Inline box</div>
+            <span class="inline-box">Inline 1</span>
+            <span class="inline-box">Inline 2</span>
+            <span class="inline-box">Inline 3</span>
+            <span class="inline-box">Inline 4</span>
+            <span class="inline-box">Inline 1</span>
+            <span class="inline-box">Inline 2</span>
+            <span class="inline-box">Inline 3</span>
+            <span class="inline-box">Inline 4</span>
+            <span class="inline-box">Inline 1</span>
+            <span class="inline-box">Inline 2</span>
+            <span class="inline-box">Inline 3</span>
+            <span class="inline-box">Inline 4</span>
+        </div>
+
+        <!-- Inline-Block Section -->
+        <div class="blue-title">Inline-Block</div>
+        <div class="inline-block-area">
+            <div class="ib-box">box1</div>
+            <div class="ib-box">box2</div>
+            <div class="ib-box">box3</div>
+        </div>
+
+    </div>
+
+</body>
+</html>

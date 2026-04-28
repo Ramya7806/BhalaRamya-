@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            background-color:beige;
+            color:brown;
+            padding: 20px;
+        }
+        h1{
+            text-align: center;
+            color: blue;
+        }
+        .box{
+            background-color:wheat;
+            padding: 20px;
+            margin: 20px;
+        }
+        .box1{
+            background-color: aqua;
+            color: white;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 20px;
+            margin: 20px;
+        }
+        .btn{
+            display: inline-block;
+            padding: 10px 20px;
+            color: tan;
+            text-decoration: none;
+            background-color: aqua;
+        }
+        .but:hover{
+            background_color:black;
+            cursor: pointer;
+        }
+        text{
+            padding: 10px;
+            width: 100px;
+        }
+        text:focus{
+            border: 2px dotted pink;
+        }
+        .pseudo-tex::before{
+            content: "@";
+            color: blanchedalmond
+        }
+        .pseudo-tex::after{
+            content: "&";
+            color: green;
+        }
+        .boxparent{
+            color: purple;
+            font-size: 20px;
+            background-color:wheat;
+            padding: 20px;
+            margin: 20px;
+        }
+        .boxparent p{
+
+        }
+        .specificity-text{
+            color: burlywood;
+        }
+        #specificity-text{
+            color: burlywood;
+        }
+        #specificity-id{
+            color: yellow;
+        }
+    </style>
+    <body>
+        <h1>CSS DAY 2</h1>
+        <div class="box1">
+            <h2>background properties</h2>
+            <p>the box info</p>
+        </div>
+        <div class="box">
+            <h2>Pseudo class</h2>
+            <a class="btn">Hover effect</a><br><br>
+            <p type="text">click focus</p>
+            
+        </div>
+        <div class="box">
+            <h2>Pseudo elements</h2>
+            <p class="pseudo-text">this is after and before</p>
+        </div>
+        <div class="box parent">
+            <h2>Inheritance</h2>
+            <p>the parent inherent the color and font size</p>
+        </div>
+        <div class="box">
+            <h2>Cascade and specification</h2>
+            <p>this name element selector</p>
+            <p class="specificity-text">this class element selector</p>
+            <p id="specificity-id">this id element selector</p>
+            <p style="color:green;">this use inline Css element selector</p>
+        </div>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Day 5 – Flexbox</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #fff;
+      color: #222;
+      padding: 20px 28px;
+      font-size: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1a73e8;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .sub-label {
+      font-size: 11px;
+      color: #444;
+      margin-bottom: 3px;
+      margin-top: 6px;
+    }
+
+    .section {
+      margin-bottom: 14px;
+    }
+
+    .flex-box {
+      border: 1.5px solid #90b8e8;
+      padding: 5px 7px;
+      margin-bottom: 3px;
+      min-height: 32px;
+    }
+
+    .item {
+      background: #4a90d9;
+      color: #fff;
+      font-size: 10px;
+      padding: 3px 8px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Layouts */
+    .row   { display: flex; flex-direction: row; gap: 4px; }
+    .col   { display: flex; flex-direction: column; gap: 4px; }
+    .wrap  { display: flex; flex-wrap: wrap; gap: 4px; }
+    .nowrap{ display: flex; flex-wrap: nowrap; gap: 4px; }
+
+    .jc-center  { display: flex; justify-content: center; gap: 4px; }
+    .jc-end     { display: flex; justify-content: flex-end; gap: 4px; }
+    .jc-between { display: flex; justify-content: space-between; gap: 4px; }
+    .ai-center  { display: flex; align-items: center; gap: 4px; min-height: 48px; }
+
+    .item-tall { height: 36px; }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 8px 0 12px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Day 5 – Flexbox</h1>
+
+  <!-- Flex Container & Items -->
+  <div class="section">
+    <div class="section-title">Flex Container &amp; Items</div>
+    <div class="flex-box row">
+      <div class="item"><span class="dot"></span> Item 1</div>
+      <div class="item"><span class="dot"></span> Item 2</div>
+      <div class="item"><span class="dot"></span> Item 3</div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- Flex Direction -->
+  <div class="section">
+    <div class="section-title">Flex Direction</div>
+
+    <div class="sub-label">Row (Default)</div>
+    <div class="flex-box row">
+      <div class="item"><span class="dot"></span> Item 1</div>
+      <div class="item"><span class="dot"></span> Item 2</div>
+      <div class="item"><span class="dot"></span> Item 3</div>
+    </div>
+
+    <div class="sub-label">Column</div>
+    <div class="flex-box col">
+      <div class="item" style="width: fit-content;"><span class="dot"></span> Item 1</div>
+      <div class="item" style="width: fit-content;"><span class="dot"></span> Item 2</div>
+      <div class="item" style="width: fit-content;"><span class="dot"></span> Item 3</div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- Flex Wrap -->
+  <div class="section">
+    <div class="section-title">Flex Wrap</div>
+
+    <div class="sub-label">Wrap</div>
+    <div class="flex-box wrap">
+      <div class="item"><span class="dot"></span> Item 1</div>
+      <div class="item"><span class="dot"></span> Item 2</div>
+      <div class="item"><span class="dot"></span> Item 3</div>
+      <div class="item"><span class="dot"></span> Item 4</div>
+      <div class="item"><span class="dot"></span> Item 5</div>
+      <div class="item"><span class="dot"></span> Item 6</div>
+      <div class="item"><span class="dot"></span> Item 7</div>
+    </div>
+
+    <div class="sub-label">No Wrap</div>
+    <div class="flex-box nowrap" style="overflow: hidden;">
+      <div class="item"><span class="dot"></span> Item 1</div>
+      <div class="item"><span class="dot"></span> Item 2</div>
+      <div class="item"><span class="dot"></span> Item 3</div>
+      <div class="item"><span class="dot"></span> Item 4</div>
+      <div class="item"><span class="dot"></span> Item 5</div>
+      <div class="item"><span class="dot"></span> Item 6</div>
+      <div class="item"><span class="dot"></span> Item 7</div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- Alignment -->
+  <div class="section">
+    <div class="section-title">Alignment</div>
+
+    <div class="sub-label">Justify Content (Main Axis)</div>
+
+    <!-- justify-content: center -->
+    <div class="flex-box jc-center">
+      <div class="item"><span class="dot"></span> Item 1</div>
+      <div class="item"><span class="dot"></span> Item 2</div>
+      <div class="item"><span class="dot"></span> Item 3</div>
+    </div>
+
+    <!-- justify-content: space-between -->
+    <div class="flex-box jc-between" style="margin-top: 3px;">
+      <div class="item"><span class="dot"></span> Item 1</div>
+      <div class="item"><span class="dot"></span> Item 2</div>
+      <div class="item"><span class="dot"></span> Item 3</div>
+    </div>
+
+    <div class="sub-label">Align Items (Cross Axis)</div>
+    <div class="flex-box ai-center">
+      <div class="item"><span class="dot"></span> Item 1</div>
+      <div class="item item-tall"><span class="dot"></span> Item 2</div>
+      <div class="item"><span class="dot"></span> Item 3</div>
+    </div>
+  </div>
+
+</body>
+</html>

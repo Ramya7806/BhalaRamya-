@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Float Example</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: left;
+        }
+
+        /* The container for the image and text */
+        .container {
+            background-color: #7FFFD4; /* Aquamarine color from image */
+            border: 2px solid #000;
+            padding: 20px;
+            overflow: auto; /* Ensures container expands to fit floated image */
+        }
+
+        /* The float property applied to the image */
+        img {
+            float: left;
+            width: 150px; 
+            height: 150px;
+            margin-right: 20px;
+            border: 1px solid #000;
+        }
+
+        .heading-small {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS FLOAT</h1>
+    <p class="heading-small">Float something to left or right</p>
+
+    <div class="container">
+        <!-- Replace 'google_logo.png' with your actual image path -->
+        <img src="https://google.com" alt="Google Logo">
+        
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Maecenas sit amet pretium urna. Vivamus enim sem, 
+            scelerisque ut maximus eget, imperdiet sed ante. 
+            Nam ultrices velit nec est varius, et convallis 
+            justo scelerisque. Curabitur convallis, lorem 
+            et sollicitudin vulputate, velit erat pellentesque 
+            lacus, vel molestie ante nisl ut leo.
+        </p>
+    </div>
+
+</body>
+</html>

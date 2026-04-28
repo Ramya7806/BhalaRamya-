@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Website Structure</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header, footer {
+            background: #333;
+            color: white;
+            padding: 15px;
+        }
+        nav {
+            background: #555;
+            color: white;
+            padding: 10px;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 20%;
+            background: #f4f4f4;
+            padding: 15px;
+        }
+        .main {
+            width: 80%;
+            padding: 15px;
+        }
+        .hero {
+            background: #ddd;
+            padding: 40px;
+            text-align: center;
+        }
+        .cards {
+            display: flex;
+            gap: 10px;
+        }
+        .card {
+            background: #eee;
+            padding: 20px;
+            flex: 1;
+            text-align: center;
+        }
+        footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <h2>Logo</h2>
+    <input type="text" placeholder="Search...">
+    <button>Login</button>
+    <button>Cart</button>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+    Home | Categories | Offers | Contact
+</nav>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    <h1>Banner / Promotions</h1>
+    <p>Big Sale / Featured Content</p>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>Filters</h3>
+        <p>Category</p>
+        <p>Price</p>
+        <p>Rating</p>
+    </div>
+
+    <!-- MAIN AREA -->
+    <div class="main">
+        <h2>Products / Content</h2>
+
+        <div class="cards">
+            <div class="card">Item 1</div>
+            <div class="card">Item 2</div>
+            <div class="card">Item 3</div>
+        </div>
+
+        <h2>Recommended</h2>
+        <div class="cards">
+            <div class="card">Item A</div>
+            <div class="card">Item B</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>About Us | Contact | Privacy Policy</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid vs Flexbox</title>
+    <style>
+        body {
+            background-color: #00bcd4; /* Main cyan background */
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            color: #000;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Container for both sections */
+        .section-container {
+            border: 2px dashed #f06292; /* Pink dashed border */
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #00bcd4;
+        }
+
+        /* --- CSS GRID STYLES --- */
+        .grid-layout {
+            display: grid;
+            /* 4 columns: 3 equal, 1 larger */
+            grid-template-columns: 1fr 1fr 1fr 2.5fr; 
+            gap: 15px;
+        }
+
+        /* --- FLEXBOX STYLES --- */
+        .flex-layout {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        /* Common item styling */
+        .item {
+            background-color: white;
+            border: 2px solid #00bcd4;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .flex-item {
+            min-width: 120px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CSS GRID SECTION -->
+    <h2>CSS GRID VS FLEX</h2>
+    <p>CSS (2D) &lt;-- LAYOUT</p>
+    <div class="section-container">
+        <div class="grid-layout">
+            <div class="item">Row1/Col1</div>
+            <div class="item">Row1/Col2</div>
+            <div class="item">Row1/Col3</div>
+            <div class="item">Row1/Col4</div>
+        </div>
+    </div>
+
+    <!-- FLEXBOX SECTION -->
+    <p>FlexBox (1D) &lt;-- LAYOUT</p>
+    <div class="section-container">
+        <div class="flex-layout">
+            <div class="item flex-item">Row1</div>
+            <div class="item flex-item">Row2</div>
+            <div class="item flex-item">Row3</div>
+        </div>
+    </div>
+
+</body>
+</html>

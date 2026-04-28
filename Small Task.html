@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Grid Layout</title>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        display:flex;
+        justify-content:center;
+        margin-top:40px;
+    }
+
+    .container{
+        display:grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 80px 120px 80px;
+        gap:10px;
+        width:700px;
+        border:3px solid #00aaff;
+        padding:10px;
+    }
+
+    .box{
+        border:3px solid #00aaff;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size:24px;
+    }
+
+    .header{
+        grid-column:1 / 4;
+    }
+
+    .menu{
+        grid-row:2 / 4;
+    }
+
+    .main{
+        grid-column:2 / 3;
+    }
+
+    .right{
+        grid-column:3 / 4;
+    }
+
+    .footer{
+        grid-column:2 / 4;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="box header">Header</div>
+    <div class="box menu">Menu</div>
+    <div class="box main">Main</div>
+    <div class="box right">Right</div>
+    <div class="box footer">Footer</div>
+</div>
+
+</body>
+</html>

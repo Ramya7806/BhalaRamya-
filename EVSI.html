@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .container {
+            display: grid;
+            /* Explicit Grid setup as shown: 3 columns, 2 rows */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 120px);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        /* Implicit Grid setup: Styles for items added after the first 6 */
+        .container {
+            grid-auto-rows: 100px;
+        }
+
+        .item {
+            /* Matching the bright cyan background and borders from the image */
+            background-color: #00f2ff;
+            border: 2px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-family: Arial, sans-serif;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Explicit and implicit grid</h2>
+    <p>Explicit Grid: First 6 items</p>
+
+    <div class="container">
+        <!-- These 6 items form the explicit grid -->
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+
+        <!-- These items represent the implicit grid row below -->
+        <div class="item">Item (Implicit)</div>
+        <div class="item">Item (Implicit)</div>
+        <div class="item">Item (Implicit)</div>
+    </div>
+
+</body>
+</html>

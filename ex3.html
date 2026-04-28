@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exercise 01 - Colorful Box Model</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #eef2f7;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #e63946;
+  }
+
+  .section {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+
+  /* Box Model */
+  .box-model {
+    background: #a8dadc;
+    padding: 25px;
+    border: 6px solid #457b9d;
+    margin: 20px;
+    color: #1d3557;
+  }
+
+  /* Padding */
+  .padding-section {
+    background: #fff3b0;
+  }
+  .padding-box {
+    background: #ffd166;
+    padding: 30px;
+    border: 2px dashed #ef476f;
+  }
+
+  /* Border */
+  .border-section {
+    background: #e0fbfc;
+  }
+  .border-box {
+    background: #98c1d9;
+    border: 8px solid #3d5a80;
+    padding: 15px;
+    color: white;
+  }
+
+  /* Margin */
+  .margin-section {
+    background: #f1faee;
+  }
+  .margin-box {
+    background: #ffafcc;
+    margin: 40px;
+    padding: 15px;
+    border: 2px solid #ff5d8f;
+  }
+
+  /* Display */
+  .display-section {
+    background: #edf6f9;
+  }
+  .display-demo div {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .box1 { background: #ff6b6b; }
+  .box2 { background: #6a4c93; }
+  .box3 { background: #1982c4; }
+
+  /* Alignment */
+  .align-section {
+    background: #fff0f3;
+    text-align: center;
+  }
+  .align-section button {
+    background: #06d6a0;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Image Styling */
+  .image-section {
+    background: #f0efeb;
+    text-align: center;
+  }
+  .image-section img {
+    width: 160px;
+    border: 5px solid #9d4edd;
+    border-radius: 12px;
+  }
+
+</style>
+</head>
+
+<body>
+
+<h1>Exercise - 01</h1>
+
+<div class="section">
+  <h3>Box Model</h3>
+  <div class="box-model">Content + Padding + Border + Margin</div>
+</div>
+
+<div class="section padding-section">
+  <h3>Padding</h3>
+  <div class="padding-box">Padding adds space inside</div>
+</div>
+
+<div class="section border-section">
+  <h3>Border</h3>
+  <div class="border-box">Border surrounds element</div>
+</div>
+
+<div class="section margin-section">
+  <h3>Margin</h3>
+  <div class="margin-box">Margin adds space outside</div>
+</div>
+
+<div class="section display-section">
+  <h3>Display Property</h3>
+  <div class="display-demo">
+    <div class="box1">One</div>
+    <div class="box2">Two</div>
+    <div class="box3">Three</div>
+  </div>
+</div>
+
+<div class="section align-section">
+  <h3>Alignment</h3>
+  <button>Centered Button</button>
+</div>
+
+<div class="section image-section">
+  <h3>Image Styling</h3>
+  <img src="https://via.placeholder.com/160" alt="Sample">
+</div>
+
+</body>
+</html>

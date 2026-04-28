@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile-Responsive Web Design (RWD)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cyan: #00e5ff;
+      --dark: #111;
+      --olive: #8b9a2a;
+      --red-footer: #c0392b;
+      --text: #111;
+      --card-border: #b5a642;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Courier Prime', monospace;
+      background: var(--cyan);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.75rem 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--cyan); }
+
+    header {
+      background: var(--cyan);
+      text-align: center;
+      padding: 1.5rem 1rem 0.5rem;
+    }
+    header h1 {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(1rem, 4vw, 1.6rem);
+      font-weight: 700;
+      color: #111;
+      letter-spacing: 0.04em;
+    }
+    header p {
+      font-size: 0.8rem;
+      color: #333;
+      margin-top: 0.25rem;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card {
+      border: 2px solid var(--card-border);
+      background: #d4c97a;
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    .card-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #111;
+      padding: 0.45rem 0.75rem;
+      background: #c8b840;
+      border-bottom: 1px solid var(--card-border);
+      letter-spacing: 0.08em;
+    }
+
+    .card-content {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 90px;
+    }
+
+    .logo-google {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 700;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: -0.03em;
+    }
+    .logo-google span:nth-child(1) { color: #4285F4; }
+    .logo-google span:nth-child(2) { color: #EA4335; }
+    .logo-google span:nth-child(3) { color: #FBBC05; }
+    .logo-google span:nth-child(4) { color: #4285F4; }
+    .logo-google span:nth-child(5) { color: #34A853; }
+    .logo-google span:nth-child(6) { color: #EA4335; }
+
+    .logo-amazon {
+      font-size: clamp(1.8rem, 7vw, 3rem);
+      font-weight: 900;
+      font-family: 'Space Mono', monospace;
+      color: #111;
+      letter-spacing: -0.04em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.1rem;
+    }
+    .logo-amazon .arrow {
+      color: #FF9900;
+      font-size: 1.4rem;
+      letter-spacing: 0.5em;
+    }
+
+    .logo-microsoft {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .ms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      width: 44px;
+      height: 44px;
+    }
+    .ms-grid div:nth-child(1) { background: #F25022; border-radius: 2px; }
+    .ms-grid div:nth-child(2) { background: #7FBA00; border-radius: 2px; }
+    .ms-grid div:nth-child(3) { background: #00A4EF; border-radius: 2px; }
+    .ms-grid div:nth-child(4) { background: #FFB900; border-radius: 2px; }
+    .ms-text {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(1.1rem, 4vw, 2rem);
+      color: #555;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background: #7a8a20;
+      color: #fff;
+      padding: 0.35rem 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .resp-section {
+      border: 2px solid var(--card-border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .resp-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: #555;
+      padding: 0.3rem 0.75rem;
+      background: #c8b840;
+      display: flex;
+      gap: 1rem;
+    }
+
+    footer {
+      background: var(--red-footer);
+      color: #fff;
+      text-align: center;
+      padding: 0.7rem 1rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      margin-top: 2rem;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card, .resp-section {
+      animation: fadeSlide 0.5s ease both;
+    }
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.12s; }
+    .card:nth-child(3) { animation-delay: 0.19s; }
+    .card:nth-child(4) { animation-delay: 0.26s; }
+    .resp-section { animation-delay: 0.33s; }
+
+    @media (min-width: 600px) {
+      .cards-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+    }
+    @media (min-width: 900px) {
+      main { max-width: 960px; }
+      .cards-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mobile-Responsive Web Design (RWD)</h1>
+    <p>Adapts to: mobile, laptop, desktop, tablet</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Service</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <main>
+
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-label">Mobile Foundation</div>
+        <div class="card-content">
+          <div class="logo-google">
+            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Tablet Foundation</div>
+        <div class="card-content">
+          <div class="logo-google">
+            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Desktop Foundation</div>
+        <div class="card-content">
+          <div class="logo-google">
+            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Fluid Layout</div>
+        <div class="card-content">
+          <div class="logo-google" style="font-size: clamp(1.2rem, 5vw, 2.5rem);">
+            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="resp-section">
+      <div class="section-title">Responsive Image</div>
+      <div class="resp-meta">clean CSS iMG</div>
+      <div class="card-content" style="min-height:110px; background:#d4c97a; flex-direction:column; gap:0.4rem;">
+        <div style="font-size:0.7rem; font-family:'Space Mono',monospace; color:#555;">Content flows gracefully</div>
+        <div class="logo-google" style="font-size: clamp(1.8rem, 6vw, 3rem);">
+          <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label" style="background:#7a8a20; color:#fff;">Reach all user easily</div>
+      <div class="card-content" style="min-height:110px;">
+        <div class="logo-amazon">
+          <span>amazon</span>
+          <span class="arrow">↗</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label" style="letter-spacing:0.2em;">USER FRIENDLY NAVIGATION</div>
+      <div class="card-content" style="min-height:110px;">
+        <div class="logo-microsoft">
+          <div class="ms-grid">
+            <div></div><div></div><div></div><div></div>
+          </div>
+          <span class="ms-text">Microsoft</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>©2026 Responsive design demo</footer>
+
+</body>
+</html>

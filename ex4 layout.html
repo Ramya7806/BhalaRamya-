@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS Day 4 - Layouts</title>
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c6ebd;
+        }
+
+        .box {
+            margin: 20px;
+            padding: 10px;
+            background: #ddd;
+        }
+
+        /* STATIC */
+        .static {
+            background: #cfd8dc;
+            padding: 10px;
+        }
+
+        /* RELATIVE */
+        .relative {
+            position: relative;
+            background: #5fd1c6;
+            height: 40px;
+        }
+
+        /* ABSOLUTE */
+        .absolute-parent {
+            position: relative;
+            background: #f6e3a1;
+            height: 80px;
+        }
+
+        .absolute-child {
+            position: absolute;
+            right: 10px;
+            top: 20px;
+            background: pink;
+            padding: 5px;
+        }
+
+        /* FIXED */
+        .fixed {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: black;
+            color: white;
+            padding: 5px;
+        }
+
+        /* FLOAT */
+        .float-container {
+            margin: 20px;
+        }
+
+        .left {
+            float: left;
+            width: 45%;
+            background: #5fa8ff;
+            padding: 10px;
+        }
+
+        .right {
+            float: right;
+            width: 45%;
+            background: #5fd1a1;
+            padding: 10px;
+        }
+
+        /* CLEAR FLOAT */
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* Z-INDEX */
+        .zindex-container {
+            position: relative;
+            height: 100px;
+        }
+
+        .red {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: red;
+            z-index: 1;
+        }
+
+        .blue {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: blue;
+            left: 20px;
+            top: 20px;
+            z-index: 2;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h2>CSS Day 4 – Layouts (Part 1)</h2>
+
+    <!-- STATIC -->
+    <div class="box">
+        <p><b>Position: Static</b></p>
+        <div class="static">This is static position (default)</div>
+    </div>
+
+    <!-- RELATIVE -->
+    <div class="box">
+        <p><b>Position: Relative</b></p>
+        <div class="relative">This box is moved using relative position</div>
+    </div>
+
+    <!-- ABSOLUTE -->
+    <div class="box">
+        <p><b>Position: Absolute</b></p>
+        <div class="absolute-parent">
+            Parent (relative)
+            <div class="absolute-child">Absolute box</div>
+        </div>
+    </div>
+
+    <!-- FIXED -->
+    <div class="box">
+        <p><b>Position: Fixed</b></p>
+        <p>Scroll the page to see fixed position effect.</p>
+    </div>
+
+    <!-- FLOAT -->
+    <div class="float-container clearfix">
+        <div class="left">Float Left</div>
+        <div class="right">Float Right</div>
+    </div>
+
+    <!-- Z-INDEX -->
+    <div class="box">
+        <p><b>Z-index</b></p>
+        <div class="zindex-container">
+            <div class="red"></div>
+            <div class="blue"></div>
+        </div>
+    </div>
+
+    <!-- FIXED BOX -->
+    <div class="fixed">Fixed Box</div>
+
+</body>
+</html>

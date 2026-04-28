@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction List</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5; /* Light grey background */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* Spacing between cards */
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            /* Using Peach Puff #FFDAB9 to match your image */
+            background-color: #FFDAB9; 
+            padding: 20px;
+            border-radius: 4px; /* Slight rounding on corners */
+            color: #333;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            min-height: 100px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        /* Hover effect for better interactivity */
+        .card:hover {
+            filter: brightness(0.95);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div class="card">Tran1</div>
+        <div class="card">Tran2</div>
+        <div class="card">Tran3</div>
+        <div class="card">Tran4</div>
+    </div>
+
+</body>
+</html>

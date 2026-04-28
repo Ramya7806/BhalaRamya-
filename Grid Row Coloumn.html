@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #00bcd4; /* Cyan background */
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .grid-container {
+            display: grid;
+            width: 95%;
+            height: 90vh;
+            gap: 15px;
+            /* Defined columns: 200px for sidebar, remaining for content */
+            grid-template-columns: 200px 1fr;
+            /* Defined rows: auto height for top/bottom, middle fills space */
+            grid-template-rows: auto 1fr auto;
+            /* Map out the layout areas */
+            grid-template-areas:
+                "header header"
+                "sidebar content"
+                "footer footer";
+        }
+
+        /* Common styles for all blocks */
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: 2px dotted white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #26c6da;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #d4e157;
+        }
+
+        .content {
+            grid-area: content;
+            background-color: #9c27b0;
+            color: white;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: #69f0ae;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="box header">Header (enter page)</div>
+        <div class="box sidebar">Sidebar (200px)</div>
+        <div class="box content">Explanation of enter test</div>
+        <div class="box footer">Footer of session (200px)</div>
+    </div>
+
+</body>
+</html>

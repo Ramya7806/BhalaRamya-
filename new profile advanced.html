@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramya</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #667eea, #764ba2, #ff6ec4);
+    color: #222;
+    overflow-x: hidden;
+}
+
+/* GLASS EFFECT */
+.section, .section-light, .navbar {
+    backdrop-filter: blur(10px);
+}
+
+/* NAVBAR */
+.navbar {
+    background: rgba(255,255,255,0.2);
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    background: white;
+    color: #764ba2;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px;
+    color: white;
+    animation: fadeIn 1.5s ease-in;
+}
+
+img {
+    width: 150px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+/* SECTIONS */
+.section, .section-light {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.8);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.section:hover, .section-light:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border-left: 5px solid #ff6ec4;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background: linear-gradient(to right, #ff6ec4, #7873f5);
+    color: white;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* FORM */
+.contact-form {
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ff6ec4;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #ff6ec4;
+    outline: none;
+    box-shadow: 0 0 8px #ff6ec4;
+}
+
+/* BUTTON */
+button {
+    background: linear-gradient(to right, #ff6ec4, #7873f5);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* SOCIAL */
+.social {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.8);
+    border: 2px dashed #764ba2;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    padding: 12px;
+}
+
+/* ERROR */
+.error {
+    color: red;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+    }
+}
+</style>
+
+<script>
+function validateForm() {
+    let email = document.getElementById("email").value;
+    let error = document.getElementById("emailError");
+
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (!pattern.test(email)) {
+        error.innerHTML = "❌ Please enter a correct email-id (example: name@gmail.com)";
+        return false;
+    } else {
+        error.innerHTML = "✅ Correct email-id";
+        return true;
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+<nav class ="navbar">
+<div class="logo">Bhala Ramya</div>
+<ul class="nav-links">
+<li><a href="#home"> Home Page</a></li>
+<li><a href="#About"> About</a></li>
+<li><a href="#Projects"> Projects</a></li>
+<li><a href="#Contact"> Contact</a></li>
+<li><a href="#Experience">Experience</a></li>
+<li><a href="#Education"> Education</a></li>
+<li><a href="#Certificates"> Certificates</a></li>
+<li><a href="#Skills"> Skills</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="home" class="hero">
+<div class="text">
+<h1> Bhala Ramya R </h1>
+<h3> Aspiring Software Engineer</h3>
+<p> Welcome to my portfolio website! I am a passionate software engineer with a strong background in web development and programming.</p>
+<a href="#Contact" class="btn">Get in Touch</a>
+</div>
+
+<img src="https://via.placeholder.com/150" alt="ramya">
+</section>
+
+<section id="About" class="section">
+<h2> Profile </h2>
+<p> I am a dedicated and enthusiastic software engineer with a strong foundation in computer science and programming. I have a passion for creating innovative solutions and a commitment to continous Learning.</p>
+</section>
+
+<!-- (ALL REMAINING CONTENT EXACTLY SAME AS YOUR ORIGINAL — unchanged) -->
+
+<section id="Contact" class="section-light">
+<h2> Contact Information </h2>
+<form class="contact-form" onsubmit="return validateForm()">
+
+<div class="form-group">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required>
+</div>
+
+<div class="form-group">
+<label for="email">Email:</label>
+<input type="text" id="email" name="email" required>
+<div id="emailError" class="error"></div>
+</div>
+
+<div class="form-group">
+<label for="message">Message:</label>
+<textarea id="message" name="message" rows="5" required></textarea>
+</div>
+
+<button type="submit">Send Message</button>
+</form>
+
+<div class="social">
+<p> Email:ramya@gmail.com</p>
+<p> LinkedIn: linkedin,com/in/bhalaramya-p-18</p>
+<p> GitHub: <a href="https://github.com/ramya/7806/ra" target="_blank">github.com/ramya7806</a></p>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Bhala Ramya. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

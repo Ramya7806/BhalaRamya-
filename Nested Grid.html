@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        background-color: #1a1a1a; /* Dark background */
+        color: #ffffff; /* White text */
+        font-family: "Courier New", Courier, monospace;
+        padding: 40px;
+    }
+
+    h3 {
+        color: #ff007b; /* Hot pink title */
+        margin-bottom: 5px;
+    }
+
+    p {
+        color: #cccccc;
+        margin-top: 0;
+        font-size: 14px;
+    }
+
+    /* The Grid Container */
+    .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 100px);
+        gap: 20px;
+        padding: 20px;
+        /* Bright yellow dashed border */
+        border: 3px dashed #ffea00; 
+        background-color: #262626;
+    }
+
+    /* The Grid Items */
+    .item {
+        /* Deep purple background */
+        background-color: #4a148c; 
+        /* Neon green border */
+        border: 2px solid #00ff41; 
+        color: #00ff41;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: bold;
+        font-size: 13px;
+        border-radius: 8px; /* Added rounded corners */
+        transition: transform 0.2s;
+    }
+
+    /* Hover effect to make it interactive */
+    .item:hover {
+        transform: scale(1.05);
+        background-color: #6a1b9a;
+    }
+</style>
+</head>
+<body>
+
+    <h3>CSS GRID Container and Item</h3>
+    <p>Direct child becomes the grid item</p>
+
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Nested Item</div>
+        <div class="item">Nested Item</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+    </div>
+
+</body>
+</html>

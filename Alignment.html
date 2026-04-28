@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid Alignment Demo</title>
+    <style>
+        body {
+            background-color: #00ff00; /* Bright green background from image */
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        /* Container using CSS Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            grid-gap: 10px;
+            height: 150px;
+            border: 2px dashed #333;
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Individual cyan boxes */
+        .item {
+            background-color: #00ffff; 
+            border: 1px solid #000;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Alignment classes based on the presentation */
+        .center {
+            justify-items: center;
+            align-items: center;
+        }
+
+        .end {
+            justify-items: end;
+            align-items: end;
+        }
+
+        .stretch .item {
+            width: auto;
+            height: auto;
+        }
+        .stretch {
+            justify-items: stretch;
+            align-items: stretch;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Centered Alignment</h2>
+    <div class="grid-container center">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+    </div>
+
+    <h2>End Alignment</h2>
+    <div class="grid-container end">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+    </div>
+
+    <h2>Stretch Alignment</h2>
+    <div class="grid-container stretch">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+    </div>
+
+</body>
+</html>

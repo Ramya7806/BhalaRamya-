@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramya</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #ff6ec4, #7873f5, #42e695);
+}
+
+/* NAVBAR */
+.navbar {
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+}
+
+.nav-links li a:hover {
+    background-color: white;
+    color: #dd2476;
+    border-radius: 5px;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    color: white;
+}
+
+img {
+    width: 150px;
+    border-radius: 50%;
+    border: 4px solid white;
+}
+
+/* SECTIONS */
+.section, .section-light {
+    padding: 20px;
+    margin: 15px;
+    border-radius: 12px;
+}
+
+.section {
+    background-color: white;
+}
+
+.section-light {
+    background-color: #f0f9ff;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 6px solid #ff512f;
+    border-radius: 10px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    background: white;
+}
+
+th {
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    color: white;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+/* CONTACT */
+.contact-form {
+    border: 3px solid #ff512f;
+    padding: 15px;
+    border-radius: 12px;
+    background: white;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+}
+
+/* BUTTON */
+button {
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* SOCIAL */
+.social {
+    border: 2px dashed #dd2476;
+    padding: 10px;
+    margin-top: 10px;
+    background: white;
+    border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+function validateForm() {
+    let email = document.getElementById("email").value;
+    let error = document.getElementById("emailError");
+
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (!pattern.test(email)) {
+        error.innerHTML = "❌ Please enter a correct email-id (example: name@gmail.com)";
+        return false;
+    } else {
+        error.innerHTML = "✅ Correct email-id";
+        return true;
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+<nav class ="navbar">
+<div class="logo">Bhala Ramya</div>
+<ul class="nav-links">
+<li><a href="#home"> Home Page</a></li>
+<li><a href="#About"> About</a></li>
+<li><a href="#Projects"> Projects</a></li>
+<li><a href="#Contact"> Contact</a></li>
+<li><a href="#Experience">Experience</a></li>
+<li><a href="#Education"> Education</a></li>
+<li><a href="#Certificates"> Certificates</a></li>
+<li><a href="#Skills"> Skills</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="home" class="hero">
+<div class="text">
+<h1> Bhala Ramya R </h1>
+<h3> Aspiring Software Engineer</h3>
+<p> Welcome to my portfolio website! I am a passionate software engineer with a strong background in web development and programming.</p>
+<a href="#Contact" class="btn">Get in Touch</a>
+</div>
+
+<img src="https://via.placeholder.com/150" alt="ramya" class="about_img">
+
+</section>
+
+<section id="About" class="section">
+<h2> Profile </h2>
+<p> I am a dedicated and enthusiastic software engineer with a strong foundation in computer science and programming. I have a passion for creating innovative solutions and a commitment to continous Learning.</p>
+</section>
+
+<section id="Education" class="section-light">
+<h2> Education </h2>
+
+<table>
+<tr>
+<th>Course</th>
+<th>College/School</th>
+<th>Year</th>
+</tr>
+
+<tr>
+<td>Bachelor of Technology in Computer Science and Engineering</td>
+<td>Jerusalem college of engineering</td>
+<td>2024-2028</td>
+</tr>
+
+<tr>
+<td>Higher Secondary Education</td>
+<td>Born scholars School</td>
+<td>2022-2024</td>
+</tr>
+
+</table>
+
+</section>
+
+<section id="Projects" class="section-light">
+<h2> Main Projects </h2>
+<div class="card">
+<h3> bus ticket booking System</h3>
+<p> A web-based application for booking bus tickets online, allowing users to search for available buses, select seats, and make payments.</p>
+</div>
+
+<div class="card">
+<h3> Task Management App</h3>
+<p> A web-based application for managing tasks and deadlines, allowing users to create, update, and track their daily activities.</p>
+</div>
+
+<div class="card">
+<h3> Personal Portfolio Website</h3>
+<p> A responsive website showcasing my skills, projects, and contact information.</p>
+</div>
+</section>
+
+<section id="Experience" class="section">
+<h2> Experience </h2>
+<div class="timeline">
+<div class="timeline-item">
+<h3> Frontend Developer </h3>
+<span> nov-13-2028 to present </span>
+<p> I am a frontend developer with experience in building responsive and user-friendly web applications.</p>
+</div>
+</div>
+</section>
+
+<section id="Certificates" class="section-light ">
+<h2> Certificates</h2>
+<ul>
+<li> Certificate 1: HTML and the used to develop web applications.</li>
+<li> Certificate 2: Python and able to develop Python applications.</li>
+<li> Certificate 3: C Programming and the coding skills acquired.</li>
+</ul>
+</section>
+
+<section id="Skills" class="section">
+<h2> Skills </h2>
+<ul>
+<li> Programming Languages: Python, JavaScript, C</li>
+<li> Web Development: HTML, CSS, React</li>
+<li> Version Control: Git and GitHub</li>
+<li> Problem Solving and Algorithm Design</li>
+</ul>
+</section>
+
+<section id="Contact" class="section-light">
+<h2> Contact Information </h2>
+<form class="contact-form" onsubmit="return validateForm()">
+<div class="form-group">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required>
+</div>
+
+<div class="form-group">
+<label for="email">Email:</label>
+<input type="text" id="email" name="email" required>
+<div id="emailError"></div>
+</div>
+
+<div class="form-group">
+<label for="message">Message:</label>
+<textarea id="message" name="message" rows="5" required></textarea>
+</div>
+
+<button type="submit">Send Message</button>
+</form>
+
+<div class="social">
+<p> Email:ramya@gmail.com</p>
+<p> LinkedIn: linkedin,com/in/bhalaramya-p-18</p>
+<p> GitHub: <a href="https://github.com/ramya/7806/ra" target="_blank">github.com/ramya7806</a></p>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Bhala Ramya. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

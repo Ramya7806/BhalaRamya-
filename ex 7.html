@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Day 7 - Responsive Web Design</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #dfe8f1;
+    }
+
+    /* Header */
+    .header {
+        background-color: #1e88e5;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    /* Container */
+    .container {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    /* Boxes */
+    .box {
+        background-color: white;
+        width: 30%;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    .box h3 {
+        margin-top: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .box {
+            width: 100%;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    CSS Day 7 – Responsive Web Design
+</div>
+
+<div class="container">
+    
+    <div class="box">
+        <h3>Fluid Layout</h3>
+        <p>Layout that adjusts based on screen size using percentages instead of fixed units.</p>
+    </div>
+
+    <div class="box">
+        <h3>Media Queries</h3>
+        <p>CSS technique to apply styles depending on device screen width.</p>
+    </div>
+
+    <div class="box">
+        <h3>Mobile First</h3>
+        <p>Design approach where we start designing for smaller screens first.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

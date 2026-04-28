@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Exercise 06</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px;
+            background-color: #f0f2f5;
+            color: #444;
+        }
+
+        h2 {
+            font-size: 14px;
+            margin: 25px 0 8px 0;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* The blue outline container seen in the image */
+        .grid-wrapper {
+            display: grid;
+            border: 2px solid #3498db;
+            padding: 15px;
+            background-color: #fff;
+            min-height: 60px;
+            border-radius: 4px;
+        }
+
+        /* Common box styles */
+        .box {
+            height: 35px;
+            border: 1px solid #bdc3c7;
+        }
+
+        /* 1. Basic Box */
+        .blue-item {
+            background-color: #3498db;
+            width: 80px;
+        }
+
+        /* 2. Grid Gap section */
+        .gap-container {
+            display: grid;
+            grid-template-columns: repeat(4, 40px);
+            gap: 15px;
+        }
+
+        /* 3. Spanning section */
+        .span-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .full-span {
+            grid-column: 1 / -1; /* Spans all columns */
+            background-color: #add8e6;
+        }
+        .light-blue {
+            background-color: #add8e6;
+        }
+
+        /* 4. Alignment section */
+        .alignment-container {
+            display: grid;
+            grid-template-rows: 40px 100px;
+            gap: 20px;
+        }
+        .flex-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end; /* Pushes small boxes to bottom */
+            height: 100%;
+        }
+        .small-square {
+            width: 20px;
+            height: 20px;
+            background-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Exercise -06</h1>
+
+    <h2>Grid Container & Items</h2>
+    <div class="grid-wrapper">
+        <div class="box blue-item"></div>
+    </div>
+
+    <h2>Grid Gap</h2>
+    <div class="grid-wrapper gap-container">
+        <div class="box blue-item"></div>
+        <div class="box blue-item"></div>
+        <div class="box blue-item"></div>
+        <div class="box blue-item"></div>
+    </div>
+
+    <h2>Grid Spanning</h2>
+    <div class="grid-wrapper span-container">
+        <div class="box full-span"></div>
+        <div class="box light-blue"></div>
+        <div class="box light-blue"></div>
+        <div class="box light-blue"></div>
+        <div class="box light-blue"></div>
+    </div>
+
+    <h2>Grid Area & Alignment</h2>
+    <div class="grid-wrapper alignment-container">
+        <div class="box light-blue"></div>
+        <div class="flex-row">
+            <div class="small-square"></div>
+            <div class="small-square"></div>
+            <div class="small-square"></div>
+        </div>
+    </div>
+
+</body>
+</html>
