@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS 3 Ways + 4 Outputs</title>
+
+    <!-- INTERNAL JAVASCRIPT -->
+    <script>
+        function internalJS() {
+            document.getElementById("internal").innerHTML = "Internal JS → innerHTML output";
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript Demo</h2>
+
+    <!-- INLINE JAVASCRIPT (alert) -->
+    <button onclick="alert('Inline JS → Alert Output')">
+        Inline JS (Alert)
+    </button>
+
+    <!-- INTERNAL JAVASCRIPT (innerHTML) -->
+    <button onclick="internalJS()">
+        Internal JS (innerHTML)
+    </button>
+    <p id="internal"></p>
+
+    <!-- EXTERNAL STYLE (simulated) (console.log) -->
+    <button onclick="externalJS()">
+        External JS (Console)
+    </button>
+
+    <!-- DOCUMENT.WRITE OUTPUT -->
+    <button onclick="docWrite()">
+        document.write Output
+    </button>
+
+    <!-- SCRIPT SECTION -->
+    <script>
+        // acts like external JS
+        function externalJS() {
+            console.log("External JS → Console Output");
+            alert("Check console (F12) 😊");
+        }
+
+        function docWrite() {
+            document.write("document.write → This replaces the whole page!");
+        }
+    </script>
+
+</body>
+</html>

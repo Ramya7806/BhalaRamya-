@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Datatypes Demo</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+            color:white;
+            text-align:center;
+            padding:40px;
+        }
+
+        h1{
+            margin-bottom:20px;
+        }
+
+        button{
+            padding:12px 20px;
+            margin:10px;
+            border:none;
+            border-radius:25px;
+            cursor:pointer;
+            color:white;
+            background:linear-gradient(45deg,#ff416c,#ff4b2b);
+            transition:0.3s;
+        }
+
+        button:hover{
+            transform:scale(1.1);
+        }
+
+        #output{
+            margin-top:30px;
+            padding:20px;
+            border-radius:15px;
+            background:rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            text-align:left;
+            max-width:600px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1> JavaScript Datatypes Demo</h1>
+
+<button onclick="showData()">Show All Datatypes</button>
+
+<div id="output">Click the button to see output...</div>
+
+<script>
+
+function showData(){
+
+    let result = "";
+    let name = "Ramya";
+    let num = 100;
+    let big = 12345678901234567890n;
+    let bool = true;
+    let n = null;
+    let u;
+    let sym = Symbol("id");
+
+    console.log("String:", name);
+    console.log("Number:", num);
+    console.log("BigInt:", big);
+    console.log("Boolean:", bool);
+    console.log("Null:", n);
+    console.log("Undefined:", u);
+    console.log("Symbol:", sym);
+
+    result += "<h3>Primitive Types</h3>";
+    result += "String: " + name + "<br>";
+    result += "Number: " + num + "<br>";
+    result += "BigInt: " + big + "<br>";
+    result += "Boolean: " + bool + "<br>";
+    result += "Null: " + n + "<br>";
+    result += "Undefined: " + u + "<br>";
+    result += "Symbol: " + sym.toString() + "<br>";
+
+    let student = {name:"Ramya", age:21};
+    let arr = [10,20,30];
+    function greet(){ return "Hello!"; }
+    let date = new Date();
+    let regex = /js/i;
+    let set = new Set([1,2,3]);
+    let map = new Map();
+    map.set("name","Anu");
+
+    console.log("Object:", student);
+    console.log("Array:", arr);
+    console.log("Function:", greet());
+    console.log("Date:", date);
+    console.log("RegExp:", regex.test("JavaScript"));
+    console.log("Set:", set);
+    console.log("Map:", map);
+
+    result += "<h3>Object Types</h3>";
+    result += "Object: " + JSON.stringify(student) + "<br>";
+    result += "Array: " + arr + "<br>";
+    result += "Function: " + greet() + "<br>";
+    result += "Date: " + date + "<br>";
+    result += "RegExp (js test): " + regex.test("JavaScript") + "<br>";
+    result += "Set: " + Array.from(set) + "<br>";
+    result += "Map: " + JSON.stringify(Object.fromEntries(map)) + "<br>";
+    let age = 21;
+
+    if(age >= 18){
+        result += "<h3>Logic</h3>Eligible to vote<br>";
+        console.log("Eligible to vote");
+    } else {
+        result += "Not eligible<br>";
+    }
+
+    for(let i=1;i<=3;i++){
+        result += "Count: " + i + "<br>";
+        console.log("Count:", i);
+    }
+
+    document.getElementById("output").innerHTML = result;
+}
+
+</script>
+
+</body>
+</html>

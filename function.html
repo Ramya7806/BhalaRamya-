@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Function Topic</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #1a00ff, #6a00ff);
+        margin: 0;
+    }
+
+    h1{
+        text-align: center;
+        background: black;
+        color: white;
+        padding: 15px;
+        margin: 20px;
+        border-radius: 8px;
+    }
+
+    .box{
+        width: 65%;
+        margin: auto;
+        background: #d3d3d3;
+        padding: 25px;
+        border-radius: 12px;
+        font-size: 17px;
+        line-height: 2;
+        white-space: pre-line;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Function topic</h1>
+
+<div class="box" id="output"></div>
+
+<script>
+let output = "";
+
+// Function Declaration
+function add(a,b){
+    return a+b;
+}
+output += "Function declaration ADD: " + add(5,3) + "\n";
+
+// Function Expression
+const multiply = function(a,b){
+    return a*b;
+}
+output += "Function Expression Multiplication: " + multiply(2,3) + "\n";
+
+// Arrow Function
+const sub = (a,b) => a-b;
+output += "Function Arrow Sub: " + sub(5,2) + "\n\n";
+
+// Parameters
+function greet(name){
+    return "hello " + name;
+}
+output += "parameter and retrn: " + greet("Ramya") + "\n";
+
+// Default Parameter
+function welcome(name="Bhala Ramya"){
+    return "Welcome " + name;
+}
+output += "default parameter: " + welcome() + "\n";
+
+// Rest Parameter
+function sum(...nums){
+    return nums.reduce((a,b)=>a+b,0);
+}
+output += "restt parameter Sum: " + sum(5,10,13) + "\n";
+
+// Arguments Object (REG NO)
+function showRegNo(){
+    return arguments[0];
+}
+output += "argument object reg no: " + showRegNo(22341) + "\n\n";
+
+// ===== Scope (5 to 6) =====
+function scopeTest(){
+    output += "Scope (5 to 6)\n";
+    for(let i=5; i<=6; i++){
+        output += i + "\n";
+    }
+}
+scopeTest();
+
+
+// ===== CLOSURE =====
+output += "\nclosure:\n";
+
+function outer(){
+    let count = 0;
+    function inner(){
+        count++;
+        return count;
+    }
+    return inner;
+}
+
+let counter = outer();
+output += counter() + "\n";
+output += counter() + "\n";
+output += counter() + "\n";
+output += counter() + "\n";
+
+
+// ===== HOISTING =====
+output += "\nfunction hostion into front\n\n";
+
+hoisted();
+
+function hoisted(){
+    output += "hosting my funrtion called\n";
+}
+
+
+// ===== IIFE =====
+output += "\nfunction life:\n";
+
+(function (){
+    output += "\nin life";
+})();
+
+
+// Display
+document.getElementById("output").innerText = output;
+
+</script>
+
+</body>
+</html>

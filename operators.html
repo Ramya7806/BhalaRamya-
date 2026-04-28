@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All JavaScript Operators</title>
+</head>
+<body>
+
+<script>
+    let a = 10;
+    let b = 5;
+    let str1 = "Hello";
+    let str2 = "Rumsey";
+
+    console.log("---- Arithmetic Operators ----");
+    console.log("Addition:", a + b);
+    console.log("Subtraction:", a - b);
+    console.log("Multiplication:", a * b);
+    console.log("Division:", a / b);
+    console.log("Modulus:", a % b);
+    console.log("Exponent:", a ** b);
+
+    console.log("---- Assignment Operators ----");
+    let x = 10;
+    x += 5;
+    console.log("x += 5:", x);
+    x -= 3;
+    console.log("x -= 3:", x);
+    x *= 2;
+    console.log("x *= 2:", x);
+    x /= 4;
+    console.log("x /= 4:", x);
+
+    console.log("---- Comparison Operators ----");
+    console.log("Equal (==):", a == b);
+    console.log("Strict Equal (===):", a === b);
+    console.log("Not Equal (!=):", a != b);
+    console.log("Greater Than:", a > b);
+    console.log("Less Than:", a < b);
+    console.log("Greater or Equal:", a >= b);
+    console.log("Less or Equal:", a <= b);
+
+    console.log("---- Logical Operators ----");
+    console.log("AND (&&):", a > 5 && b < 10);
+    console.log("OR (||):", a < 5 || b < 10);
+    console.log("NOT (!):", !(a > b));
+
+    console.log("---- String Operators ----");
+    console.log("Concatenation:", str1 + " " + str2);
+    str1 += " World";
+    console.log("String += :", str1);
+
+    console.log("---- Increment / Decrement ----");
+    let y = 10;
+    console.log("Post Increment:", y++);
+    console.log("After Increment:", y);
+    console.log("Pre Increment:", ++y);
+    console.log("Post Decrement:", y--);
+    console.log("After Decrement:", y);
+
+    console.log("---- Bitwise Operators ----");
+    console.log("AND (&):", a & b);
+    console.log("OR (|):", a | b);
+    console.log("XOR (^):", a ^ b);
+    console.log("Left Shift (<<):", a << 1);
+    console.log("Right Shift (>>):", a >> 1);
+
+    console.log("---- Ternary Operator ----");
+    let result = (a > b) ? "a is greater" : "b is greater";
+    console.log(result);
+
+    console.log("---- Unary Operators ----");
+    console.log("typeof a:", typeof a);
+    let obj = {name: "Rumsey"};
+    console.log("Before delete:", obj.name);
+    delete obj.name;
+    console.log("After delete:", obj.name);
+
+    console.log("---- Special / Type Operators ----");
+    let arr = [1, 2, 3];
+    console.log("2 in arr:", 2 in arr);
+
+    function Person() {}
+    let p = new Person();
+    console.log("p instanceof Person:", p instanceof Person);
+
+    console.log("---- Comma Operator ----");
+    let z = (a = 20, b = 30, a + b);
+    console.log("Comma result:", z);
+
+</script>
+
+</body>
+</html>

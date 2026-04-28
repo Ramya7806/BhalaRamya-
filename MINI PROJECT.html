@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Game</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: linear-gradient(to right, #00ff7f, #32cd32, #7CFC00);
+        text-align: center;
+    }
+
+    .box {
+        background-color: white;
+        padding: 20px;
+        width: 300px;
+        margin: 50px auto;
+        border: 2px solid darkgreen;
+        border-radius: 10px;
+    }
+
+    h1 {
+        color: green;
+    }
+
+    button {
+        padding: 8px 15px;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .output {
+        margin-top: 15px;
+        text-align: left;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>💚 Number Game</h1>
+
+    <input type="number" id="num" placeholder="Enter a number">
+    <br><br>
+    <button onclick="runGame()">Check</button>
+
+    <div class="output" id="result"></div>
+</div>
+
+<script>
+function runGame() {
+    let n = document.getElementById("num").value;
+    let output = "";
+
+    for (let i = 1; i <= n; i++) {
+
+        if (i % 5 == 0) {
+            output += "<span style='color:violet'>" + i + " - Divisible by 5</span><br>";
+        } 
+        else if (i % 2 == 0) {
+            output += "<span style='color:blue'>" + i + " - Even</span><br>";
+        } 
+        else {
+            output += "<span style='color:orange'>" + i + " - Odd</span><br>";
+        }
+    }
+
+    document.getElementById("result").innerHTML = output;
+}
+</script>
+
+</body>
+</html>

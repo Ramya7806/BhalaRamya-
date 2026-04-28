@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control Flow</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #66e0e0; /* light aqua (like image) */
+    }
+
+    h1 {
+        background-color: #00bcd4; /* cyan header */
+        color: black;
+        padding: 20px;
+        margin: 0;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    #output {
+        font-size: 18px;
+        margin: 20px;
+        color: black;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>control flow</h1>
+<p id="output">Output</p>
+
+<script>
+    // 1. pass
+    let marks = 75;
+    let result;
+
+    if (marks > 50) {
+        console.log("pass");
+        result = "A";
+    }
+
+    // 2. money not there
+    let money = 0;
+    let choc;
+
+    if (money <= 0) {
+        console.log("money not there");
+        choc = "No money";
+    }
+
+    // 3. not given by admin
+    let login = true;
+    let admin = false;
+    let access;
+
+    if (login && !admin) {
+        console.log("not given by admin");
+        access = "Not given by admin";
+    }
+
+    // 4. leave
+    let action = "leave";
+    switch (action) {
+        case "leave":
+            console.log("leave");
+            break;
+    }
+
+    // 5. not
+    let val = 0;
+    let truth;
+
+    if (!val) {
+        console.log("not");
+        truth = "No value";
+    }
+
+    // display
+    document.getElementById("output").innerText =
+        "Marks: " + result +
+        " | Chocolate: " + choc +
+        " | Login: " + access +
+        " | Truth: " + truth;
+
+</script>
+
+</body>
+</html>
