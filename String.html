@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Day 3 - String</title>
+</head>
+
+<style>
+    body {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: lightyellow;
+        text-align: center;
+    }
+    H3 {
+        padding: 20px;
+        color: white;
+        background-color: tomato;
+        border-radius: 20px;
+        font-size: 26px;
+    }
+    #output {
+        text-align: left;
+        margin: 20px;
+        padding: 20px;
+        background-color: lightgreen;
+        line-height: 2.6;
+        border: 2px solid orange;
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <H3>java script --> String</H3>
+    <pre id="output">output</pre>
+</body>
+
+<script>
+    let output = "";
+
+    let str = "Hello World JS";
+    output += "String: " + str + "\n";
+
+    output += "\nMETHODS\n";
+    output += "length: " + str.length + "\n";
+
+    output += "\nIMMUTABILITY\n";
+    let Newstr = "Hi World JS";
+    output += "Newstr: " + Newstr + "\n";
+    output += "str: " + str + "\n";
+
+    output += "\naccess the char\n";
+    output += "First char: " + str[3] + "\n\n";
+
+    output += "Upper and lower\n";
+    output += str.toUpperCase() + "\n";
+    output += str.toLowerCase() + "\n";
+
+    //student task
+    //1.SEARCH METHODS - indexOf AND includes
+    output += "\n-- Task 1 : indexOf & includes --\n";
+    output += "indexOf 'World'  : " + str.indexOf("World")  + "\n";
+    output += "indexOf 'JS'     : " + str.indexOf("JS")     + "\n";
+    output += "indexOf 'Python' : " + str.indexOf("Python") + "\n";
+    output += "includes 'Hello' : " + str.includes("Hello") + "\n";
+    output += "includes 'Java'  : " + str.includes("Java")  + "\n";
+
+    //2.SLICE(3,7) AND ALSO PERFORM SUBSTRING(2,4)
+    output += "\n-- Task 2 : slice & substring --\n";
+    output += "slice(3,7)     : " + str.slice(3, 7)     + "\n";
+    output += "slice(6)       : " + str.slice(6)        + "\n";
+    output += "substring(2,4) : " + str.substring(2, 4) + "\n";
+    output += "substring(0,5) : " + str.substring(0, 5) + "\n";
+
+    //3.REPLACE ALL - take more str then perform
+    output += "\n-- Task 3 : replace & replaceAll --\n";
+    let sentence = "I love JS. JS is great. JS is fun.";
+    output += "Original                        : " + sentence + "\n";
+    output += "replace JS to Python (1st only) : " + sentence.replace("JS", "Python") + "\n";
+    output += "replaceAll JS to Python         : " + sentence.replaceAll("JS", "Python") + "\n";
+    output += "replace Hello to Hi             : " + str.replace("Hello", "Hi") + "\n";
+
+    //4.TRIM - key word used then we get without space
+    output += "\n-- Task 4 : trim, trimStart, trimEnd --\n";
+    let spacedStr = "   Hello World JS   ";
+    output += "Before trim  : '" + spacedStr            + "'\n";
+    output += "trim()       : '" + spacedStr.trim()      + "'\n";
+    output += "trimStart()  : '" + spacedStr.trimStart() + "'\n";
+    output += "trimEnd()    : '" + spacedStr.trimEnd()   + "'\n";
+
+    //5.SPLIT - based on string use the key word
+    output += "\n-- Task 5 : split --\n";
+    let words = str.split(" ");
+    output += "split by space  : " + words        + "\n";
+    output += "word count      : " + words.length  + "\n";
+    let csv = "name,age,city,country";
+    output += "split csv       : " + csv.split(",")    + "\n";
+    output += "split into chars: " + "Hello".split("") + "\n";
+
+    //6.START AND END TRIMMED - startsWith and endsWith
+    output += "\n-- Task 6 : startsWith & endsWith --\n";
+    output += "startsWith 'Hello' : " + str.startsWith("Hello") + "\n";
+    output += "startsWith 'World' : " + str.startsWith("World") + "\n";
+    output += "endsWith 'JS'      : " + str.endsWith("JS")      + "\n";
+    output += "endsWith 'Hello'   : " + str.endsWith("Hello")   + "\n";
+    let padded = "   Hello World JS   ";
+    output += "trimmed startsWith : " + padded.trim().startsWith("Hello") + "\n";
+    output += "trimmed endsWith   : " + padded.trim().endsWith("JS")      + "\n";
+
+    //7.TEMPLATE LITERALS - take two string and make it
+    output += "\n-- Task 7 : Template Literals --\n";
+    let firstName = "Hello";
+    let lastName  = "World";
+    output += `Full Name         : ${firstName} ${lastName}\n`;
+    output += `Concatenated      : ${"Hello" + " " + "World"}\n`;
+    output += `With Dollar       : $${10 + 5}\n`;
+    output += `Two strings joined: ${firstName.concat(" ", lastName)}\n`;
+    let price = 99;
+    let item  = "Pen";
+    output += `Item: ${item} costs $${price}\n`;
+
+    //8.MULTI LINE STRING OUTPUTS
+    output += "\n-- Task 8 : Multi-line String --\n";
+    let multiLine = `Line 1: JavaScript
+Line 2: String Methods
+Line 3: Multi-line using template literals
+Line 4: No need for newline manually`;
+    output += multiLine + "\n";
+    output += "Line A: Hello\nLine B: World\nLine C: JS\n";
+
+    //9.EXPRESSION - add any thing ${st1} ${st2} + n
+    output += "\n-- Task 9 : Expressions in Template Literals --\n";
+    let st1 = "Hello";
+    let st2 = "World";
+    let n   = 42;
+    output += `Combined      : ${st1} ${st2}\n`;
+    output += `With number   : ${st1} ${st2} ${n}\n`;
+    output += `Math expr     : 5 + 3 = ${5 + 3}\n`;
+    output += `Length of st1 : ${st1.length}\n`;
+    output += `Upper expr    : ${st1.toUpperCase()} ${st2.toUpperCase()}\n`;
+
+    //10.STRING CONCATENATION
+    output += "\n-- Task 10 : String Concatenation --\n";
+    let s1 = "Hello";
+    let s2 = " World";
+    let s3 = " JS";
+    output += "Using +        : " + (s1 + s2 + s3) + "\n";
+    let concatB = "Start";
+    concatB += " -> Middle";
+    concatB += " -> End";
+    output += "Using +=       : " + concatB + "\n";
+    output += "Using concat() : " + s1.concat(s2, s3) + "\n";
+    output += "Using join()   : " + ["Java","Script"," is"," awesome"].join("") + "\n";
+
+    document.getElementById("output").innerText = output;
+</script>
+
+</html>
