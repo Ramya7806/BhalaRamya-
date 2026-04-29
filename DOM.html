@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <style>
+        li{
+            padding: 10px;
+            border-radius: 20;
+        }
+
+        .box{
+            padding: 15px;
+            width: 100%;
+            color: white;
+            background: #ac67d3;
+        }
+
+        button{
+            display: block;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>DOM Practices</h2>
+
+    <div id="box" class="box">
+        Hello DOM - Tree structure
+    </div>
+
+    <br>
+
+    <button id="changetext">changetext</button>
+    <button id="addclass">addclass</button>
+    <button id="create">create</button>
+    <button id="remove">remove</button>
+
+    <br>
+
+    <ul id="list">
+        <li>item1</li>
+        <li>item2</li>
+    </ul>
+
+    <p id="info"></p>
+
+    <p id="user" data-role="student"></p>
+
+<script>
+
+// changetext
+document.getElementById("changetext").onclick = function(){
+    document.getElementById("box").innerHTML = "Text Changed";
+}
+
+// addclass
+document.getElementById("addclass").onclick = function(){
+    document.getElementById("box").style.background = "purple";
+}
+
+// create
+document.getElementById("create").onclick = function(){
+    var li = document.createElement("li");
+    li.innerHTML = "item";
+    document.getElementById("list").appendChild(li);
+}
+
+// remove
+document.getElementById("remove").onclick = function(){
+    var list = document.getElementById("list");
+    list.removeChild(list.lastElementChild);
+}
+
+// Loop: add "slow item0" to "slow item5"
+for(var i = 0; i < 6; i++){
+    var li = document.createElement("li");
+    li.innerHTML = "slow item" + i;
+    document.getElementById("list").appendChild(li);
+}
+
+// Dataset: display the data-role attribute
+var user = document.getElementById("user");
+document.getElementById("info").innerHTML = "Dataset Role :" + user.dataset.role;
+
+</script>
+
+</body>
+</html>

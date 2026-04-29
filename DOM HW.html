@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling in Js</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 10px;
+        }
+
+        h2 {
+            background: black;
+            color: white;
+            padding: 10px;
+            margin: 0 0 10px 0;
+        }
+
+        .parent {
+            background: #ac67d3;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 6px 14px;
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            display: block;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+
+        #list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #list li {
+            background: #f5deb3;
+            padding: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 10px;
+            font-weight: bold;
+            color: darkblue;
+        }
+
+        /* Form CSS */
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            max-width: 400px;
+            background: #f9f9f9;
+        }
+
+        form h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        form button {
+            background: #ac67d3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        form button:hover {
+            background: purple;
+        }
+
+        #form-output, #window-output {
+            margin-top: 8px;
+            padding: 8px;
+            background: #eef;
+            border-left: 4px solid #ac67d3;
+            font-size: 14px;
+        }
+
+        .window-section {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #f9f9f9;
+            max-width: 400px;
+        }
+
+        .window-section h3 {
+            margin-top: 0;
+        }
+
+        .window-section button {
+            margin: 6px 4px;
+            background: #333;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .window-section button:hover {
+            background: #ac67d3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Event Handling in Js</h2>
+
+    <!-- Parent / Child click + stop propagation -->
+    <div class="parent" id="parent">
+        parent class
+        <br><br>
+        <button id="btn">Click Me</button>
+    </div>
+
+    <!-- Keyboard event -->
+    <input type="text" id="textInput" placeholder="try to write" />
+
+    <!-- Event delegation list -->
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+    <p id="output"></p>
+
+    <hr>
+
+    <!-- ===== FORM EVENTS ===== -->
+    <form id="myForm">
+        <h3>Form Events</h3>
+
+        <label>Name:</label>
+        <input type="text" id="nameInput" placeholder="Enter name" />
+
+        <label>Email:</label>
+        <input type="email" id="emailInput" placeholder="Enter email" />
+
+        <label>Role:</label>
+        <select id="roleSelect">
+            <option value="">--Select--</option>
+            <option value="student">Student</option>
+            <option value="developer">Developer</option>
+            <option value="teacher">Teacher</option>
+        </select>
+
+        <label>Message:</label>
+        <textarea id="messageArea" rows="3" placeholder="Type message..."></textarea>
+
+        <button type="submit">Submit Form</button>
+    </form>
+
+    <div id="form-output"></div>
+
+    <hr>
+
+    <!-- ===== WINDOW EVENTS ===== -->
+    <div class="window-section">
+        <h3>Window Events</h3>
+        <button id="alertBtn">alert()</button>
+        <button id="confirmBtn">confirm()</button>
+        <button id="promptBtn">prompt()</button>
+        <button id="openBtn">open()</button>
+        <button id="scrollBtn">scrollTo()</button>
+        <div id="window-output"></div>
+    </div>
+
+<script>
+
+    var output = document.getElementById("output");
+    var formOutput = document.getElementById("form-output");
+    var windowOutput = document.getElementById("window-output");
+
+    // ---- Parent click
+    document.getElementById("parent").addEventListener("click", function(){
+        output.innerText = "Parent clicked";
+    });
+
+    // ---- Button click + stop bubbling
+    document.getElementById("btn").addEventListener("click", function(e){
+        output.innerText = "Button clicked";
+        // stop bubbling
+        e.stopPropagation();
+    });
+
+    // ---- Mouse over
+    document.getElementById("btn").addEventListener("mouseover", function(){
+        output.innerText = "Mouse over button";
+    });
+
+    // ---- Mouse out
+    document.getElementById("btn").addEventListener("mouseout", function(){
+        output.innerText = "Mouse left button";
+    });
+
+    // ---- Keyboard event on input
+    document.getElementById("textInput").addEventListener("keyup", function(e){
+        output.innerText = "You typed: " + e.target.value;
+    });
+
+    // ---- Event delegation on list
+    var list = document.getElementById("list");
+    list.addEventListener("click", function(e){
+        console.log("target", e.target);
+        console.log("currenttarget", e.currentTarget);
+        if(e.target.tagName === "LI"){
+            output.innerText = "Clicked: " + e.target.innerText;
+        }
+    });
+
+    // ==============================
+    // FORM EVENTS
+    // ==============================
+
+    // focus
+    document.getElementById("nameInput").addEventListener("focus", function(){
+        formOutput.innerText = "Name field focused";
+    });
+
+    // blur
+    document.getElementById("nameInput").addEventListener("blur", function(){
+        formOutput.innerText = "Name field lost focus: " + this.value;
+    });
+
+    // input (live typing)
+    document.getElementById("nameInput").addEventListener("input", function(){
+        formOutput.innerText = "Typing in name: " + this.value;
+    });
+
+    // change (on select)
+    document.getElementById("roleSelect").addEventListener("change", function(){
+        formOutput.innerText = "Role selected: " + this.value;
+    });
+
+    // submit
+    document.getElementById("myForm").addEventListener("submit", function(e){
+        e.preventDefault(); // stop page reload
+        var name  = document.getElementById("nameInput").value;
+        var email = document.getElementById("emailInput").value;
+        var role  = document.getElementById("roleSelect").value;
+        var msg   = document.getElementById("messageArea").value;
+
+        if(name === "" || email === ""){
+            formOutput.innerText = "Please fill Name and Email!";
+            formOutput.style.borderColor = "red";
+        } else {
+            formOutput.style.borderColor = "#ac67d3";
+            formOutput.innerText =
+                "Form Submitted! Name: " + name +
+                " | Email: " + email +
+                " | Role: " + role +
+                " | Message: " + msg;
+        }
+    });
+
+    // reset
+    document.getElementById("myForm").addEventListener("reset", function(){
+        formOutput.innerText = "Form was reset!";
+    });
+
+    // ==============================
+    // WINDOW EVENTS
+    // ==============================
+
+    // alert
+    document.getElementById("alertBtn").addEventListener("click", function(){
+        alert("This is a Window Alert!");
+        windowOutput.innerText = "alert() called";
+    });
+
+    // confirm
+    document.getElementById("confirmBtn").addEventListener("click", function(){
+        var result = confirm("Do you confirm?");
+        windowOutput.innerText = "confirm() result: " + result;
+    });
+
+    // prompt
+    document.getElementById("promptBtn").addEventListener("click", function(){
+        var name = prompt("What is your name?");
+        if(name){
+            windowOutput.innerText = "prompt() result: " + name;
+        } else {
+            windowOutput.innerText = "prompt() cancelled";
+        }
+    });
+
+    // open new window/tab
+    document.getElementById("openBtn").addEventListener("click", function(){
+        window.open("https://www.google.com", "_blank");
+        windowOutput.innerText = "Opened new tab with window.open()";
+    });
+
+    // scrollTo
+    document.getElementById("scrollBtn").addEventListener("click", function(){
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        windowOutput.innerText = "Scrolled to top with window.scrollTo()";
+    });
+
+    // window load
+    window.addEventListener("load", function(){
+        console.log("Window fully loaded");
+    });
+
+    // window resize
+    window.addEventListener("resize", function(){
+        windowOutput.innerText = "Window resized: " + window.innerWidth + " x " + window.innerHeight;
+    });
+
+    // window scroll
+    window.addEventListener("scroll", function(){
+        console.log("Scrolled at Y:", window.scrollY);
+    });
+
+</script>
+
+</body>
+</html>

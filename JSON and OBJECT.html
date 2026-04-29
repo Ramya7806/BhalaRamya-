@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<style>
+    body{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: rgb(223, 215, 224);
+        text-align: center;
+    }
+    h1{
+        padding: 20px;
+        color: rgb(5, 5, 5);
+        background-color: rgb(22, 240, 127);
+        border-radius: 20px;
+    }
+    pre{
+        background-color: rgb(240, 10, 14);
+    }
+    #output{
+        text-align: left;
+        margin: 20px;
+        padding: 20px;
+        background-color: rgb(118, 180, 250);
+        line-height: 2.6;
+    }
+</style>
+
+<body>
+    <h1>Java script -> json and object</h1>
+    <pre id="output"></pre>
+</body>
+
+<script>
+let output="";
+
+let user={
+    name: "Bhala Ramya",
+    age:18,
+    city:"Chennai",
+    greet:function(){
+        return "Hi " + this.name;
+    }
+};
+
+let u={
+    name: "Bhala Ramya",
+    age:18,
+    city:"Chennai",
+    g:function(){
+        return "Hi " + this.age;
+    }
+};
+
+output+="Object Creation: direct \n";
+output+= user.name+",\n"+user.age+",\n"+user.city+"\n";
+
+output+="Object Creation: function \n";
+output+= user.greet()+"\n";
+
+output+="Object Creation: keyword this \n";
+output+= u.g()+"\n";
+
+
+let ex1={
+    price:100,
+    getPrice:function(){
+        return this.price;
+    }
+};
+
+let ex2={
+    first:"Bhala",
+    last:"Ramya",
+    full:function(){
+        return this.first+" "+this.last;
+    }
+};
+
+let ex3={
+    marks:80,
+    add:function(){
+        return this.marks+20;
+    }
+};
+
+output+="More this examples:\n";
+output+=ex1.getPrice()+"\n";
+output+=ex2.full()+"\n";
+output+=ex3.add()+"\n\n";
+
+output+="destructuring \n";
+let {name,age}=user;
+output+=name+"-"+age+"\n\n";
+
+output+="object methods --> key.values.entries\n";
+let keys=Object.keys(user);
+let values=Object.values(user);
+let entries=Object.entries(user);
+
+output+="Keys :"+keys+"\n";
+output+="Values :"+values+"\n";
+output+="Entries :"+entries+"\n\n";
+
+output+="object copy-shallow\n";
+let Shallow={...user};
+Shallow.name="Changed Name";
+output+="Original name:"+user.name+"\n";
+output+="Shallow copy name:"+Shallow.name+"\n\n";
+
+output+="object copy-deep\n";
+let deep=JSON.parse(JSON.stringify(user));
+deep.name="Deep Changed";
+output+="Original name:"+user.name+"\n";
+output+="deep copy name:"+deep.name+"\n\n";
+
+output+="Dashboard Object Example\n";
+let dashboard={
+    name:"Ramya",
+    age:18,
+    gender:"Female",
+    address:"Chennai",
+    phone:"9876543234"
+};
+
+output+=dashboard.name+" - "+dashboard.phone+"\n\n";
+
+output+="Object property\n";
+let obj={};
+Object.defineProperty(obj,"id",{
+    value:101,
+    writable:false
+});
+
+obj.id=200;
+obj.status=true;
+
+output+="ID : "+obj.id+"\n";
+output+="Status : "+obj.status+"\n\n";
+
+output+="Object : seal \n";
+let size={b:2};
+Object.seal(size);
+size.b=20;
+size.c=30;
+
+output+="seal value "+size.b+"\n\n";
+
+output+="Object : freeze \n";
+let size2={a:1};
+Object.freeze(size2);
+size2.a=10;
+
+output+="freeze value:"+size2.a+"\n\n";
+
+output+="Dashboard with freeze + shallow\n";
+let db={
+    id:1,
+    name:"Ramya",
+    city:"Chennai"
+};
+
+Object.freeze(db);
+let db2={...db};
+db2.name="Updated Name";
+
+output+="Original:"+db.name+"\n";
+output+="Shallow Changed:"+db2.name+"\n\n";
+
+output+="Object: regular vs arrow \n";
+
+let ex={
+    value:50,
+    rollnumber : 08,
+    regular : function(){
+        return this.value;
+    },
+    arrow:function(){
+        return this.rollnumber;
+    }
+};
+
+output+="Regular :" +ex.regular()+"\n";
+output+="Arrow :" +ex.arrow()+"\n\n";
+
+output+="More examples:\n";
+
+let a={x:10};
+let b={...a};
+b.x=50;
+output+="Shallow example:"+a.x+"-"+b.x+"\n";
+
+let c=JSON.parse(JSON.stringify(a));
+c.x=100;
+output+="Deep example:"+a.x+"-"+c.x+"\n";
+
+let arrObj={
+    arr:[1,2,3],
+    show:function(){
+        return this.arr.join("-");
+    }
+};
+output+="Array in object:"+arrObj.show()+"\n";
+
+document.getElementById("output").innerText=output;
+</script>
+</html>
