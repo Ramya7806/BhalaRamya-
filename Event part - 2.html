@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events & Event Handling - Part 2</title>
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 20px;
+        background-color: #f7d9c4; /* peach */
+    }
+
+    .parent{
+        background-color: #17d4d4;
+        padding: 40px;
+        border: 3px dashed red;
+        margin-bottom: 30px;
+    }
+
+    .child{
+        background-color: #c7f3c7;
+        padding: 30px;
+        border: 3px dashed red;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 20px;
+    }
+
+    li{
+        border: 2px solid green;
+        padding: 12px;
+        margin: 10px 0;
+        width: 90%;
+        background-color: #eaffea;
+    }
+
+    button{
+        margin-top: 10px;
+        padding: 6px 12px;
+    }
+
+    .section{
+        margin-top: 30px;
+    }
+</style>
+
+</head>
+<body>
+
+<h2>Events & Event Handling -Part 2</h2>
+
+<div id="parent" class="parent">
+    parent div
+    <div id="child" class="child">
+        child div(click me)
+    </div>
+</div>
+
+<!-- Event Delegation -->
+<div class="section">
+    <h3>Event delegation</h3>
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button id="addItem">Add Item</button>
+</div>
+
+<!-- preventDefault -->
+<div class="section">
+    <h3>preventDefault example</h3>
+    <a href="https://www.google.com" id="link">Go to Google</a><br><br>
+
+    <form id="form">
+        <input type="text" placeholder="Enter Name">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- removeEventListener -->
+<div class="section">
+    <h3>removeEventListener</h3>
+    <button id="btn">Click Me</button>
+    <button id="removeBtn">Stop click Event</button>
+</div>
+
+<script>
+    // event bubbling
+    document.getElementById("parent").addEventListener("click", function(){
+        console.log("Parent bubbling clicked");
+    });
+
+    document.getElementById("child").addEventListener("click", function(e){
+        console.log("Child clicked bubbling");
+        console.log("target", e.target);
+        console.log("currentTarget", e.currentTarget);
+    });
+
+    // event capturing
+    document.getElementById("parent").addEventListener("click", function(){
+        console.log("Parent clicked (capturing)");
+    }, true);
+
+    // stopPropagation
+    document.getElementById("child").addEventListener("click", function(e){
+        e.stopPropagation();
+        console.log("propagation stopped");
+    });
+
+    // event delegation
+    document.getElementById("list").addEventListener("click", function(e){
+        if(e.target.tagName === "LI"){
+            alert("CLICKED: " + e.target.textContent);
+        }
+    });
+
+    document.getElementById("addItem").addEventListener("click", function(){
+        let li = document.createElement("li");
+        li.textContent = "NewItem created";
+        document.getElementById("list").appendChild(li);
+    });
+
+    // preventDefault
+    document.getElementById("link").addEventListener("click", function(e){
+        e.preventDefault();
+        alert("Default link action prevented");
+    });
+
+    document.getElementById("form").addEventListener("submit", function(e){
+        e.preventDefault();
+        alert("default form action be used");
+    });
+
+    // removeEventListener
+    function handleclick(){
+        alert("Button clicked");
+    }
+
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click", handleclick);
+
+    document.getElementById("removeBtn").addEventListener("click", function(){
+        btn.removeEventListener("click", handleclick);
+        alert("Event removed");
+    });
+</script>
+
+</body>
+</html>

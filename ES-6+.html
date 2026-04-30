@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="script.js"></script>
+<title>Document</title>
+</head>
+<style>
+   h2{
+    border: 3px solid red;
+    border-radius: 20px;
+    color: aliceblue;
+    padding: 30px;
+    background-color: black;
+   }
+
+</style>
+
+<body>
+
+ <h2> ES6+ Advanced Features</h2>
+
+</body>
+
+<script>
+
+var x=10;
+console.log(x);
+var x=100;
+console.log(x);
+
+let age=25;
+console.log(age);
+age=20
+//let age=20;
+console.log(age);
+console.log(age);
+const name="Rumsey";
+console.log(name);
+
+
+
+const user={
+    city:"chennai"
+};
+user.city="Chennai";
+console.log(user);
+
+
+const add=(a,b)=>a+b;
+console.log("Arrow function:",add(2,3))
+
+
+
+const username="Ramya";
+console.log(`I AM ${username}, Welcome to RB`)
+
+
+
+function greet(user='guest'){
+    console.log("Hello",user)
+}
+
+greet();
+greet("Rumsey");
+
+
+const per={
+    profile:{
+        email:"Rums@gamil.com"
+    }
+}
+console.log(per?.profile?.email);
+
+
+
+const number=[10,20,30,40];
+const[a,b,c,d]=numbers;
+console.log("Array Destructuring:",a,d);
+
+const student={
+    nam:"Ma",marks:90
+};
+const {nam,marks}=student;
+console.log("Obj destructuring:",nam,marks);
+
+
+const arr1=[12,3,4,5,8];
+const arr2=[...arr1,6,7,8,9];
+console.log(arr1);
+console.log(arr2);
+
+
+
+const array1=[23,3,4,5,6];
+const array2=[...arrary1,22,33,44,55,66];
+console.log("Spread:",array2);
+
+
+function sum(...nums){
+    return nums.reduce((acc,val)=>acc+val,0);
+}
+console.log("Rest:",sum(1,2,3,4,5,6,7,8,9));
+
+
+
+async function loadmodule() {
+    const module=await import('./module.js')
+    module.sayHi();
+    
+}
+
+
+let value= null;
+console.log(value??"Default value");
+
+</script>
+</html>

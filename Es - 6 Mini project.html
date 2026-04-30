@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Management ES6</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            width: 65%;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #4facfe;
+        }
+
+        #addbtn {
+            padding: 10px 15px;
+            border: none;
+            background: #4facfe;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #addbtn:hover {
+            background: #3a8dde;
+        }
+
+        ol {
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+
+        li {
+            background: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .complete {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        button {
+            border: none;
+            padding: 5px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        button:first-child {
+            background: #28a745;
+            color: white;
+        }
+
+        button:first-child:hover {
+            background: #218838;
+        }
+
+        button:last-child {
+            background: #dc3545;
+            color: white;
+        }
+
+        button:last-child:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Task Management</h1>
+    <input type="text" id="taskinput" placeholder="Enter task...">
+    <button id="addbtn">Add Task</button>
+    <ol id="tasklist"></ol>
+</div>
+
+<script>
+class TaskManager {
+    constructor() {
+        this.tasks = [];
+    }
+
+    addTask(name) {
+        if (name.trim() === "") return;
+        const newTask = {
+            id: Date.now(),
+            name: name,
+            complete: false
+        };
+        this.tasks.push(newTask);
+        this.render();
+    }
+
+    toggleTask(id) {
+        this.tasks = this.tasks.map(task => 
+            task.id === id ? { ...task, complete: !task.complete } : task
+        );
+        this.render();
+    }
+
+    deleteTask(id) {
+        this.tasks = this.tasks.filter(task => task.id !== id);
+        this.render();
+    }
+
+    render() {
+        const taskListElement = document.getElementById("tasklist");
+        
+        taskListElement.innerHTML = this.tasks.map((task) => `
+            <li class="${task.complete ? 'complete' : ''}">
+                <div>${task.name}</div>
+                <div>
+                    <button onclick="app.toggleTask(${task.id})">
+                        ${task.complete ? 'Undo' : 'Done'}
+                    </button>
+                    <button onclick="app.deleteTask(${task.id})">
+                        Delete
+                    </button>
+                </div>
+            </li>
+        `).join("");
+    }
+}
+
+const app = new TaskManager();
+
+document.getElementById("addbtn").addEventListener("click", () => {
+    const input = document.getElementById("taskinput");
+    app.addTask(input.value);
+    input.value = "";
+});
+</script>
+
+</body>
+</html>
