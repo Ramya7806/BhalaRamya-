@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling Project</title>
+    <style>
+        body {
+            font-family: serif;
+            padding: 20px;
+        }
+        #message {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Error Handling</h1>
+    <h3>Enter age</h3>
+    
+    <input type="text" id="ageInput" placeholder="e.g. 18">
+    <button onclick="checkAge()">Check</button>
+
+    <p id="message"></p>
+
+    <script>
+        function checkAge() {
+            const message = document.getElementById("message");
+            const input = document.getElementById("ageInput").value;
+            
+            message.innerHTML = "";
+
+            try {
+                if (input.trim() === "") throw "Input is empty";
+                if (isNaN(input)) throw "Not a number";
+                
+                let age = Number(input);
+
+                if (age < 18) throw "You are too young";
+                if (age > 120) throw "Please enter a valid age";
+
+                message.innerHTML = "Access Granted. Age " + age + " is valid.";
+                message.style.color = "green";
+
+            } catch (err) {
+                message.innerHTML = "Error: " + err;
+                message.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>

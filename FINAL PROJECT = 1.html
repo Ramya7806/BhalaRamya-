@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Ramya Page</title>
+
+<link rel="icon" type="image/jpeg" href="favicon.jpeg">
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    font-family: Georgia, serif;
+}
+
+.header {
+    background: #ff4500;
+    padding: 25px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    color: white;
+    margin: 0;
+}
+
+#category-filter {
+    background: black;
+    color: white;
+    border: 2px solid white;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.card-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 10px;
+}
+
+#load-more {
+    display: block;
+    margin: 40px auto;
+    background: black;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#close-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="header-content">
+        <h1>Blog Ramya Page</h1>
+        <select id="category-filter">
+            <option value="All">All Categories</option>
+        </select>
+    </div>
+</div>
+
+<div class="card-row"></div>
+
+<button id="load-more">Load More</button>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-box">
+        <span id="close-btn">&times;</span>
+        <h3 id="modal-title"></h3>
+        <p id="modal-text"></p>
+    </div>
+</div>
+
+<script>
+
+// Categories
+const categories = ["Business", "Technology", "Health"];
+
+// Data
+const data = {
+    blogs: []
+};
+
+// Generate 60 blogs with WORKING images
+for (let i = 1; i <= 60; i++) {
+    const cat = categories[i % 3];
+
+    data.blogs.push({
+        title: "Blog Title " + i,
+        summary: "This is summary for blog number " + i,
+        content: "This is full content of blog number " + i,
+        category: cat,
+        image: `https://picsum.photos/400/300?random=${i}` // ✅ FIXED IMAGE
+    });
+}
+
+// DOM
+const row = document.querySelector(".card-row");
+const filter = document.getElementById("category-filter");
+const loadMoreBtn = document.getElementById("load-more");
+
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modal-title");
+const modalText = document.getElementById("modal-text");
+const closeBtn = document.getElementById("close-btn");
+
+let currentIndex = 0;
+const limit = 6;
+let currentData = data.blogs;
+
+// Dropdown
+categories.forEach(cat => {
+    const opt = document.createElement("option");
+    opt.value = cat;
+    opt.innerText = cat;
+    filter.appendChild(opt);
+});
+
+// Show blogs
+function showBlogs(list, reset = false) {
+    if (reset) {
+        row.innerHTML = "";
+        currentIndex = 0;
+    }
+
+    const items = list.slice(currentIndex, currentIndex + limit);
+
+    items.forEach(blog => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <img src="${blog.image}" loading="lazy">
+            <div class="card-content">
+                <h3>${blog.title}</h3>
+                <p>${blog.summary}</p>
+                <small>${blog.category}</small>
+            </div>
+        `;
+
+        // Modal open
+        card.onclick = () => {
+            modal.style.display = "flex";
+            modalTitle.innerText = blog.title;
+            modalText.innerText = blog.content;
+        };
+
+        row.appendChild(card);
+    });
+
+    currentIndex += limit;
+
+    loadMoreBtn.style.display =
+        currentIndex >= list.length ? "none" : "block";
+}
+
+// Load first
+showBlogs(currentData, true);
+
+// Load more
+loadMoreBtn.onclick = () => showBlogs(currentData);
+
+// Filter
+filter.onchange = (e) => {
+    const val = e.target.value;
+
+    currentData = (val === "All")
+        ? data.blogs
+        : data.blogs.filter(b => b.category === val);
+
+    showBlogs(currentData, true);
+};
+
+// Close modal
+closeBtn.onclick = () => modal.style.display = "none";
+
+window.onclick = (e) => {
+    if (e.target === modal) modal.style.display = "none";
+};
+
+</script>
+
+</body>
+</html>
